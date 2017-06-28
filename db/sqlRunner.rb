@@ -1,8 +1,8 @@
 class SqlRunner     #Class to run the database connection
 
-  def self.run(sql)
+  def self.run(sql, dbName, dbHost)
     begin
-      db = PG.connect({dbname: 'personalArnieTestDb', host: 'localhost'})
+      db = PG.connect({dbname: dbName, host: dbHost})
       result = db.exec(sql)
     ensure
       db.close
