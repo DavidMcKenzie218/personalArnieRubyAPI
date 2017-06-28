@@ -39,4 +39,31 @@ class Get
 
   end
 
+  def self.oneCatagory(catagory, db, dbName, dbHost)    #Gets all of the entries from on specific 
+                                                        # catagory
+    sql = "SELECT * FROM #{db} WHERE catagory = '#{catagory}';"
+    return Get.mapItems(sql, dbName, dbHost)
+
+  end
+
+  def self.oneOfACatagory(number, catagory, db, dbName, dbHost) #Gets a specific entry from a specific
+                                                                #catagory
+    allOfCatagory = Get.oneCatagory(catagory, db, dbName, dbHost)
+    return allOfCatagory.slice((number - 1))
+
+  end
+
+  def self.firstOfCatagory(catagory, db, dbName, dbHost)
+
+    return Get.oneOfACatagory(1, catagory, db, dbName, dbHost)
+
+  end
+
+  def self.lastOfCatagory(catagory, db, dbName, dbHost)
+
+    totalEntries = Get.oneCatagory(catagory, db, dbName, dbHost).length
+    return Get.oneOfACatagory(totalEntries, catagory, db, dbName, dbHost)
+
+  end
+
 end
