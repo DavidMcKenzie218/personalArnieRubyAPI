@@ -53,13 +53,13 @@ class Get
 
   end
 
-  def self.firstOfCatagory(catagory, db, dbName, dbHost)
+  def self.firstOfCatagory(catagory, db, dbName, dbHost)  #Gets the first entry of a specific catagory
 
     return Get.oneOfACatagory(1, catagory, db, dbName, dbHost)
 
   end
 
-  def self.lastOfCatagory(catagory, db, dbName, dbHost)
+  def self.lastOfCatagory(catagory, db, dbName, dbHost) #Gets the last entry of a specific catagory
 
     totalEntries = Get.oneCatagory(catagory, db, dbName, dbHost).length
     return Get.oneOfACatagory(totalEntries, catagory, db, dbName, dbHost)
