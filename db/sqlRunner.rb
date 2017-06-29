@@ -5,7 +5,7 @@ class SqlRunner     #Class to run the database connection
       db = PG.connect({dbname: dbName, host: dbHost})
       result = db.exec(sql)
     ensure
-      db.close
+      db.close()
     end
     return result
   end
