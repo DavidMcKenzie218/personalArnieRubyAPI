@@ -5,7 +5,6 @@ require_relative '../db/sqlRunner.rb'
 class Post
 
   def self.oneResponse(response, db, dbName, host)  #Insets one response to the database
-
     sql = "INSERT INTO #{db} (spoken_word, response, catagory) VALUES ('#{response[:spoken_word]}', '#{response[:response]}', '#{response[:catagory]}');"
     SqlRunner.run(sql, dbName, host)
 

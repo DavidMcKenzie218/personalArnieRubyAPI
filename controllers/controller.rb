@@ -11,3 +11,14 @@ get('/responses.json') do
   @responses.to_json
 
 end
+
+#CREATE
+
+post('/responses') do
+  request.body.rewind
+  parsedData = JSON.parse request.body.read
+  data = {spoken_word: parsedData["spoken_word"], response: parsedData["response"], catagory: parsedData["catagory"]}
+  print data
+  Post.oneResponse(data, "testData", "personalarnietestdb", "localhost")
+  content_type :json
+end
