@@ -66,4 +66,11 @@ class Get
 
   end
 
+  def self.spokenWordResponse(word, db, dbName, dbHost)   #Gets all of one spoken word
+
+    sql = "SELECT * FROM #{db} WHERE spoken_word = '#{word}';"
+    return Get.mapItems(sql, dbName, dbHost)
+
+  end
+
 end

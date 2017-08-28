@@ -52,19 +52,23 @@ class TestGet < MiniTest::Test
   end
 
   def test_CanGetAllOfOneSpokenWord
-
+    data = Get.spokenWordRespopnse("bye", "testData", "personalarnietestdb", "localhost")
+    assert_equal([{"id"=>"3", "spoken_word"=>"bye", "response"=>"soundcloud.com/bye_sucka", "catagory"=>"farewell"}, {"id"=>"4", "spoken_word"=>"bye", "response"=>"soundcloud.com/leave_now", "catagory"=>"farewell"}], data)
   end
 
   def test_CanGetFirstOfOneSpokenWord
-
+    data = Get.firstSpokenWordResponse("bye", "testData", "personalarnietestdb", "localhost")
+    assert_equal({"id"=>"3", "spoken_word"=>"bye", "response"=>"soundcloud.com/bye_sucka", "catagory"=>"farewell"}, data)
   end
 
   def test_CanGetLastOfOneSpokenWord
-
+    data = Get.lastSpokenWordResponse("bye", "testData", "personalarnietestdb", "localhost")
+    assert_equal({"id"=>"4", "spoken_word"=>"bye", "response"=>"soundcloud.com/leave_now", "catagory"=>"farewell"}, data)
   end
 
   def test_CanGetSecondOfOneSpokenWord
-
+    data = Get.aSingleWordResponse("bye", "testData", "personalarnietestdb", "localhost")
+    assert_equal({"id"=>"4", "spoken_word"=>"bye", "response"=>"soundcloud.com/leave_now", "catagory"=>"farewell"}, data)
   end
 
 end
