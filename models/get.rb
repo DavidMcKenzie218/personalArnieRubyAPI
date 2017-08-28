@@ -74,6 +74,8 @@ class Get
   end
 
   def self.firstSpokenWordResponse(word, db, dbName, dbHost)
+  
+    return Get.aSingleWordResponse(1, word, db, dbName, dbHost)
 
   end
 
