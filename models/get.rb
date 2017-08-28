@@ -73,4 +73,19 @@ class Get
 
   end
 
+  def self.firstSpokenWordResponse(word, db, dbName, dbHost)
+
+  end
+
+  def self.lastSpokenWordResponse(word, db, dbName, dbHost)
+
+  end
+
+  def self.aSingleWordResponse(number, word, db, dbName, dbHost)
+
+    allOfOneWord = Get.spokenWordResponse(word, db, dbName, dbHost)
+    return allOfOneWord.slice((number - 1))
+
+  end
+
 end
