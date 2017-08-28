@@ -81,6 +81,9 @@ class Get
 
   def self.lastSpokenWordResponse(word, db, dbName, dbHost)
 
+    totalEntries = Get.spokenWordResponse(word, db, dbName, dbHost).length
+    return Get.aSingleWordResponse(totalEntries, word, db, dbName, dbHost)
+
   end
 
   def self.aSingleWordResponse(number, word, db, dbName, dbHost)
